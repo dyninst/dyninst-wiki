@@ -1,12 +1,18 @@
 Dyninst is built via CMake. We recommend performing an interactive
 configuration with:
+
     ccmake .
+
 first, in order to see which options are
 relevant for your system. You may also perform a batch configuration
 with 
+
     cmake .
+
 .  Options are passed to CMake with 
+
     -DVAR=VALUE
+
 . Common
 options include:
 
