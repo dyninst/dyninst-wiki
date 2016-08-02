@@ -5,4 +5,4 @@ Welcome to the Dyninst wiki (under construction).
 * The point/snippet model
 * Tips and tricks
 * Dyninst-based tools
-* Contributing to the project
+* [Contributing to the project](https://github.com/dyninst/dyninst/wiki/Contributions)
