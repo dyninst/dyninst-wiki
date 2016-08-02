@@ -5,15 +5,15 @@ configuration with:
 
 first, in order to see which options are
 relevant for your system. You may also perform a batch configuration
-with 
+with:
 
     cmake .
 
-.  Options are passed to CMake with 
+Options are passed to CMake with:
 
     -DVAR=VALUE
 
-. Common
+Common
 options include:
 
     Boost_INCLUDE_DIR 
