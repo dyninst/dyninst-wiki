@@ -1,0 +1,1 @@
+Dyninst and its components are released under the LGPL. We accept outside contributions via pull requests. Contributions should ideally improve the state of our test suite (fix a broken test or add a passing one). More details to follow.
