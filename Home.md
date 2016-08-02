@@ -1,6 +1,6 @@
 Welcome to the Dyninst wiki (under construction).
 
-* Configuring Dyninst
+* [Configuring Dyninst](https://github.com/dyninst/dyninst/wiki/Configuring-Dyninst)
 * Building Dyninst
 * The point/snippet model
 * Tips and tricks
