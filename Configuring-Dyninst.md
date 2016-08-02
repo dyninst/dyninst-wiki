@@ -1,17 +1,23 @@
 Dyninst is built via CMake. We recommend performing an interactive
-configuration with "ccmake ." first, in order to see which options are
+configuration with:
+    ccmake .
+first, in order to see which options are
 relevant for your system. You may also perform a batch configuration
-with "cmake .".  Options are passed to CMake with -DVAR=VALUE. Common
+with 
+    cmake .
+.  Options are passed to CMake with 
+    -DVAR=VALUE
+. Common
 options include:
 
-Boost_INCLUDE_DIR 
-CMAKE_BUILD_TYPE 
-CMAKE_INSTALL_PREFIX
-LIBDWARF_INCLUDE_DIR 
-LIBDWARF_LIBRARIES 
-LIBELF_INCLUDE_DIR
-LIBELF_LIBRARIES 
-IBERTY_LIBRARIES
+    Boost_INCLUDE_DIR 
+    CMAKE_BUILD_TYPE 
+    CMAKE_INSTALL_PREFIX
+    LIBDWARF_INCLUDE_DIR 
+    LIBDWARF_LIBRARIES 
+    LIBELF_INCLUDE_DIR
+    LIBELF_LIBRARIES 
+    IBERTY_LIBRARIES
 
 CMake's default generator on Linux is normally "Unix Makefiles", and
 on Windows, it will normally produce project files for the most recent
