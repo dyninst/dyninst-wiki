@@ -56,7 +56,16 @@ length wrong will mess up the decoding for the instructions that follow.
 
 # Decoding Tables
 
+Here is a quick reference for the flow of the decoding tables. Decoding can stop in any table, however it is completely dependent on the instruction. Some instructions will stop in the `oneByteMap`, others will continue on into the `twoByteMap`. Decoding also doesn't always start in the `oneByteMap`. Certain prefixes can change the starting table to the `twoByteMap` or one of the three byte maps. 
+
+![Dyninst Decoding Reference](https://raw.githubusercontent.com/dyninst/dyninst/att_syntax/common/docs/decoding_diagram.png)
+
 ## One Byte Map (oneByteMap)
+
+This is generally the first table in the decoding process. The row selected
+here is just based on the current byte we are looking at in the instruction.
+This table contains a lot of the really basic and most common x86
+instructions.
 
 ## Two Byte Map (twoByteMap)
 
