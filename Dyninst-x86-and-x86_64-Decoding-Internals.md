@@ -152,6 +152,7 @@ This is the table that typically follows after the Group Map table. This table h
 +---+----+-----+-----+-----+
 | G | XX | SSE | XXX | (X) |
 +---+----+-----+-----+-----+
+      |           |     |
       |           |     +-> If this is a B, then the Mod value was 3
       |           +-------> This is the value of the Reg value in binary
       +-------------------> This is the group number.
