@@ -38,3 +38,4 @@ For our next major release, Dyninst 10.0, we're planning on some more radical ch
 * Migrate from libdwarf to libdw
 * Test suite improvements?
 * Migrate to a standard logging library and streams in preference to printf-style?
+* Serialization of CFGs to/from dot?
