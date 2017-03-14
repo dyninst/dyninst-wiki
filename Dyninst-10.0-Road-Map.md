@@ -7,6 +7,15 @@ For our next major release, Dyninst 10.0, we're planning on some more radical ch
 * Add ppc64 instruction semantics
 * Windows binary rewriter?
 * Win64 support?
+* CUbin support (level and form TBD)
+  - Symtab
+    * understand appropriate sections as containing sub-Symtabs
+    * associate debug info correctly
+    * ensure that GPU architectures are handled appropriately
+  - ParseAPI
+    * build CFGs given either instructionAPI support or an appropriate block-level API for direct CFG construction
+  - InstructionAPI
+    * architectures TBD
 
 # API CHANGES
 
@@ -31,11 +40,19 @@ For our next major release, Dyninst 10.0, we're planning on some more radical ch
   - CFG parsing/construction
   - other?
 * Add option to use Cilk for multithreading
-* Continue increasing thread-safety of Dyninst components?
+* Continue increasing thread-safety of Dyninst components:
+  - Fix any outstanding issues in read access to Symtab/ParseAPI data structures
+  - Add thread safety to other components for read access?
+  - Add thread safety to Symtab/ParseAPI for write access?
 
 # INFRASTRUCTURE
 
 * Migrate from libdwarf to libdw
 * Test suite improvements?
-* Migrate to a standard logging library and streams in preference to printf-style?
+  - Integrate as submodule
+  - Better use of prolog for efficient coverage
+  - Meaningful names on tests
+* Logging improvements?
+  - Use a standard logging library?
+  - Start migrating from printf-style to stream-style?
 * Serialization of CFGs to/from dot?
