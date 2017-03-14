@@ -27,9 +27,9 @@ For our next major release, Dyninst 10.0, we're planning on some more radical ch
 # MULTITHREADING SUPPORT
 
 * Add option to parallelize various analyses in Dyninst
-- DWARF parsing
-- CFG parsing/construction
-- other?
+  - DWARF parsing
+  - CFG parsing/construction
+  - other?
 * Add option to use Cilk for multithreading
 * Continue increasing thread-safety of Dyninst components?
 
