@@ -4,7 +4,7 @@ For our next major release, Dyninst 10.0, we're planning on some more radical ch
 
 * Make Dyninst feature complete on ARMv8/64
 * Make progress on ARM/32 implementation
-* Add ppc64 instruction semantics
+* Add ppc64 instruction semantics and semantics-based jump table analysis
 * Windows binary rewriter?
 * Win64 support?
 * CUbin support (level and form TBD)
@@ -52,7 +52,11 @@ For our next major release, Dyninst 10.0, we're planning on some more radical ch
   - Integrate as submodule
   - Better use of prolog for efficient coverage
   - Meaningful names on tests
+  - ParseAPI test cases
 * Logging improvements?
   - Use a standard logging library?
   - Start migrating from printf-style to stream-style?
-* Serialization of CFGs to/from dot?
+* Serialization of CFGs to/from graphviz format?
+* More rational structure of code generation?
+  - Generate all instruction sequences through Emitters
+  - Abstract away BaseTramp into allocate/spill/restore, recursion guard, call setup?
