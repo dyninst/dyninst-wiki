@@ -8,7 +8,7 @@
 * [iberty](#iberty)
 ***
 
-Starting with Dyninst-10.1, the build system has been changed to be more coherent and consistent with the handling of user input. This both makes it easier to automate Dyninst builds for continuous integration testing and allows for exporting the Dyninst CMake cache configuration for use in the Testsuite to create a unified build. See [Building from source](Configuring-Dyninst/#build-from-source-long) for details on required library versions.
+Starting with Dyninst-10.1, the build system has been changed to be more coherent and consistent with the handling of user input. This both makes it easier to automate Dyninst builds for continuous integration testing and allows for exporting the Dyninst CMake cache configuration for use in the Testsuite to create a unified build. See [Building from source](Building-Dyninst#source_long) for details on required library versions.
 
 <a name="boost"/>
 
