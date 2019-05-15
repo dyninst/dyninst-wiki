@@ -1,8 +1,9 @@
 Welcome to the Dyninst wiki (under construction).
 
-* [Configuring Dyninst](https://github.com/dyninst/dyninst/wiki/Configuring-Dyninst)
-* [Building Dyninst](https://github.com/dyninst/dyninst/wiki/Building-Dyninst)
-* The point/snippet model
-* Tips and tricks
-* Dyninst-based tools
-* [Contributing to the project](https://github.com/dyninst/dyninst/wiki/Contributions)
+* [Building Dyninst](Building-Dyninst)
+    * [Third-party Dependencies](third-party-deps)
+* [Dyninst Roadmap](Dyninst-10.0-Road-Map)
+* [x86 Encoding](Dyninst-x86-and-x86_64-Decoding-Internals)
+* [ARMv8 Support](DyninstAPI-ARMv8-status)
+* [ROSE](ROSE-Semantics)
+* [Contributing to the project](Contributions)

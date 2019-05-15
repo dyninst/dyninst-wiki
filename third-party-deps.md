@@ -1,0 +1,144 @@
+# Third-party Dependencies in Dyninst
+
+##### Table of Contents
+* [Boost](#boost)
+    * [tagged layout](#boost_tagged_layout)
+* [ElfUtils](#elfutils)
+* [TBB](#tbb)
+* [iberty](#iberty)
+***
+
+Starting with Dyninst-10.1, the build system has been changed to be more coherent and consistent with the handling of user input. This both makes it easier to automate Dyninst builds for continuous integration testing and allows for exporting the Dyninst CMake cache configuration for use in the Testsuite to create a unified build. See [Building from source](https://github.com/dyninst/dyninst/wiki/Configuring-Dyninst/_edit#build-from-source-long) for details on required library versions.
+
+<a name="boost"/>
+
+## Boost
+
+Basic options:
+
+	Boost_ROOT_DIR            - Hint directory that contains the Boost installation
+	PATH_BOOST                - Alias for Boost_ROOT_DIR
+	Boost_MIN_VERSION         - Minimum acceptable version of Boost
+	Boost_USE_MULTITHREADED   - Use the multithreaded version of Boost
+	Boost_USE_STATIC_RUNTIME  - Use libraries linked statically to the C++ runtime.
+	BOOST_INCLUDEDIR          - Hint directory that contains the Boost headers files
+	BOOST_LIBRARYDIR          - Hint directory that contains the Boost library files
+
+Advanced options:
+
+	Boost_DEBUG               - Enable debug output from FindBoost
+	Boost_NO_SYSTEM_PATHS     - Disable searching in locations not specified by hint variables 
+
+Exports the following CMake cache variables
+
+	Boost_ROOT_DIR            - Computed base directory the of Boost installation
+	Boost_INCLUDE_DIRS        - Boost include directories
+	Boost_INCLUDE_DIR         - Alias for Boost_INCLUDE_DIRS
+	Boost_LIBRARY_DIRS        - Link directories for Boost libraries
+	Boost_DEFINES             - Boost compiler definitions
+	Boost_LIBRARIES           - Boost library files
+	Boost_<C>_LIBRARY_RELEASE - Release libraries to link for component <C> (<C> is upper-case)
+	Boost_<C>_LIBRARY_DEBUG   - Debug libraries to link for component <C>
+	Boost_THREAD_LIBRARY      - The filename of the Boost thread library
+	Boost_USE_MULTITHREADED   - Use the multithreaded version of Boost
+	Boost_USE_STATIC_RUNTIME  - Use libraries linked statically to the C++ runtime.
+
+**NOTE:**
+>The exported ```Boost_ROOT_DIR``` can be different from the value provided by the user in the case that
+it is determined to build Boost from source. In such a case, ```Boost_ROOT_DIR``` will contain the
+directory of the from-source installation.
+
+See the CMake file ```cmake/Modules/FindBoost.cmake``` in the Dyninst source directory for additional input and exported variables.
+
+<a name="boost_tagged_layout"/>
+
+### Tagged Layout Builds
+
+Some systems build Boost using the tagged layout system where compile-time options used to build the libraries are encoded in the final library names. For example, ```libboost_system-mt.so``` is the ```boost::system``` library compiled in multithreaded mode. This is not turned on by default, and so should generally not be an issue. However, if your local Boost installation uses tagged layout, it is now fully supported as of Dyninst-10.1. See the CMake module ```cmake/Modules/FindBoost.cmake``` in the Dyninst source directory for a complete list of available options.
+
+***
+
+<a name="elfutils"/>
+
+## ElfUtils
+
+Basic options:
+
+	ElfUtils_ROOT_DIR       - Base directory the of elfutils installation
+	ElfUtils_INCLUDEDIR     - Hint directory that contains the elfutils headers files
+	ElfUtils_LIBRARYDIR     - Hint directory that contains the elfutils library files
+	ElfUtils_MIN_VERSION    - Minimum acceptable version of elfutils
+
+Exports the following CMake variables
+
+	ElfUtils_ROOT_DIR       - Computed base directory the of elfutils installation
+	ElfUtils_INCLUDE_DIRS   - elfutils include directories
+	ElfUtils_LIBRARY_DIRS   - Link directories for elfutils libraries
+	ElfUtils_LIBRARIES      - elfutils library files
+
+**NOTE:**
+>The exported ```ElfUtils_ROOT_DIR``` can be different from the value provided by the user
+in the case that it is determined to build elfutils from source. In such a case,
+```ElfUtils_ROOT_DIR``` will contain the directory of the from-source installation.
+
+See the CMake files ```cmake/Modules/FindLibElf.cmake``` and ```cmake/Modules/FindLibDwarf.cmake``` in the Dyninst source directory for additional input and exported variables.
+
+***
+
+<a name="tbb"/>
+
+## Intel Threading Building Blocks (TBB)
+
+Basic options:
+
+	TBB_ROOT_DIR        - Hint directory that contains the TBB installation
+	TBB_INCLUDEDIR      - Hint directory that contains the TBB headers files
+	TBB_LIBRARYDIR      - Hint directory that contains the TBB library files
+	TBB_LIBRARY         - Alias for TBB_LIBRARYDIR
+	TBB_USE_DEBUG_BUILD - Use debug version of tbb libraries, if present
+	TBB_MIN_VERSION     - Minimum acceptable version of TBB
+
+Exports the following CMake cache variables
+
+	TBB_ROOT_DIR        - Computed base directory of TBB installation
+	TBB_INCLUDE_DIRS    - TBB include directory
+	TBB_INCLUDE_DIR     - Alias for TBB_INCLUDE_DIRS
+	TBB_LIBRARY_DIRS    - TBB library directory
+	TBB_LIBRARY_DIR     - Alias for TBB_LIBRARY_DIRS
+	TBB_DEFINITIONS     - TBB compiler definitions
+	TBB_LIBRARIES       - TBB library files
+	
+	TBB_<c>_LIBRARY_RELEASE - Path to the release version of component <c>
+	TBB_<c>_LIBRARY_DEBUG   - Path to the debug version of component <c>
+
+**NOTE:**
+>The exported ```TBB_ROOT_DIR``` can be different from the value provided by the user
+in the case that it is determined to build TBB from source. In such a case,
+```TBB_ROOT_DIR``` will contain the directory of the from-source installation.
+
+See the CMake file ```cmake/Modules/FindTBB.cmake``` in the Dyninst source directory for additional input and exported variables.
+
+***
+
+<a name="iberty"/>
+
+## libiberty (from binutils)
+
+Basic options:
+
+	LibIberty_ROOT_DIR     - Base directory the of LibIberty installation
+	LibIberty_LIBRARYDIR   - Hint directory that contains the LibIberty library files
+	IBERTY_LIBRARIES       - Alias for LibIberty_LIBRARIES (backwards compatibility only)
+	USE_GNU_DEMANGLER      - Use the GNU C++ name demanger (if yes, this disables using LibIberty)
+
+Exports the following CMake cache variables
+
+	LibIberty_FOUND        - True if headers and requested libraries were found
+	IBERTY_FOUND           - Alias for LibIberty_FOUND (backwards compatibility only)
+	LibIberty_LIBRARY_DIRS - Link directories for LibIberty libraries
+	LibIberty_LIBRARIES    - LibIberty library files
+
+**NOTE:**
+>The exported ```LibIberty_ROOT_DIR``` can be different from the value provided by the user
+in the case that it is determined to build LibIberty from source. In such a case,
+```LibIberty_ROOT_DIR``` will contain the directory of the from-source installation.
