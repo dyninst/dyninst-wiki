@@ -5,6 +5,7 @@
     * [tagged layout](#boost_tagged_layout)
 * [ElfUtils](#elfutils)
 * [TBB](#tbb)
+    * [correct linking](#tbb_correct_linking)
 * [iberty](#iberty)
 ***
 
@@ -117,6 +118,12 @@ in the case that it is determined to build TBB from source. In such a case,
 ```TBB_ROOT_DIR``` will contain the directory of the from-source installation.
 
 See the CMake file ```cmake/Modules/FindTBB.cmake``` in the Dyninst source directory for additional input and exported variables.
+
+<a name="tbb_correct_linking"/>
+
+### Correctly linking TBB when built from source
+
+Due to interoperability issues with the TBB build system when TBB is built from source, then only the location of the main TBB library (`libtbb.so` on linux) is entered into the rpath of the requesting Dyninst library. The `tbbmalloc` and `tbbmalloc_proxy` libraries are not entered. This can lead to incorrect versions of the `tbbmalloc` and `tbbmalloc_proxy` libraries being transitively loaded, if other versions are present on the system. The workaround for this is to add the `CMAKE_INSTALL_PREFIX/INSTALL_LIB_DIR` (see [Building and Installing](https://github.com/dyninst/dyninst/wiki/Building-Dyninst#building-and-installing) for details) directory to your `LD_LIBRARY_PATH` when linking to Dyninst or executing your program linked against Dyninst.
 
 ***
 
