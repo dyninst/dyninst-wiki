@@ -42,7 +42,7 @@ Dyninst-10.1 includes a new set of rules in the build system. One consequence of
 
 ### Configuration
 
-Dyninst is built via CMake. We require CMake 3.4.0 as a minimum on all systems. CMake will automatically search for dependencies and download them when not found.
+Dyninst is built via CMake. We require CMake 3.4.0 as a minimum on all systems. CMake will automatically search for dependencies and download them when not found (to disable this, see [Sterile Builds](third-party-deps#sterile_build)).
 
 #### Third-party Dependencies
 
@@ -76,6 +76,8 @@ Build options are passed to CMake with -DVAR=VALUE. Dyninst is highly configurab
 	USE_OpenMP: whether or not use OpenMP for parallel parsing. Default to be ON
 	
 	ENABLE_STATIC_LIBS: also build dyninst in static libraries. Default to be NO. Set to YES to build static libraries.
+
+	STERILE_BUILD: Do not download/build third-party dependencies from source. (default: OFF)
 
 >See the [Third-party Dependencies](https://github.com/dyninst/dyninst/wiki/third-party-deps) page for a more thorough discussion of options available.
 

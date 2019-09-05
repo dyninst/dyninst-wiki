@@ -1,6 +1,7 @@
 # Third-party Dependencies in Dyninst
 
 ##### Table of Contents
+* [Sterile Build](#sterile_build)
 * [Boost](#boost)
     * [tagged layout](#boost_tagged_layout)
 * [ElfUtils](#elfutils)
@@ -10,6 +11,12 @@
 ***
 
 Starting with Dyninst-10.1, the build system has been changed to be more coherent and consistent with the handling of user input. This both makes it easier to automate Dyninst builds for continuous integration testing and allows for exporting the Dyninst CMake cache configuration for use in the Testsuite to create a unified build. See [Building from source](Building-Dyninst#source_long) for details on required library versions.
+
+<a name="sterile_build"/>
+
+## Sterile Build
+
+A sterile build requires that all dependencies are already installed on the system and thus will not be downloaded and built from source by the Dyninst build system. This is accomplished by using ```-DSTERILE_BUILD=ON``` when [building from source](Building-Dyninst#source_long). This is the default when [building with Spack](Building-Dyninst#spack).
 
 <a name="boost"/>
 
