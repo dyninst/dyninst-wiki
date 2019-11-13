@@ -8,6 +8,8 @@
 * [TBB](#tbb)
     * [correct linking](#tbb_correct_linking)
 * [iberty](#iberty)
+* [Capstone](#capstone)
+	* [Building from source](#capstone_build_from_source)
 ***
 
 Starting with Dyninst-10.1, the build system has been changed to be more coherent and consistent with the handling of user input. This both makes it easier to automate Dyninst builds for continuous integration testing and allows for exporting the Dyninst CMake cache configuration for use in the Testsuite to create a unified build. See [Building from source](Building-Dyninst#source_long) for details on required library versions.
@@ -156,3 +158,38 @@ Exports the following CMake cache variables
 >The exported ```LibIberty_ROOT_DIR``` can be different from the value provided by the user
 in the case that it is determined to build LibIberty from source. In such a case,
 ```LibIberty_ROOT_DIR``` will contain the directory of the from-source installation.
+
+***
+
+<a name="capstone"/>
+
+## Capstone
+
+Basic options:
+
+	Capstone_ROOT_DIR       - Base directory of the Capstone installation
+	Capstone_INCLUDEDIR     - Hint directory that contains the Capstone headers files
+	Capstone_LIBRARYDIR     - Hint directory that contains the Capstone library files
+	Capstone_MIN_VERSION    - Minimum acceptable version of Capstone
+
+Exports the following CMake cache variables
+
+	Capstone_ROOT_DIR       - Base directory of the Capstone installation
+	Capstone_INCLUDE_DIRS   - Capstone include directories
+	Capstone_LIBRARY_DIRS   - Link directories for Capstone libraries
+	Capstone_LIBRARIES      - Capstone library files
+
+<a name="capstone_build_from_source"/>
+
+### Building Capstone from source
+
+```
+$ git clone https://github.com/aquynh/capstone.git
+$ cd capstone
+$ git checkout next
+$ mkdir build
+$ cd build
+$ cmake .. -DCMAKE_INSTALL_PREFIX=/your/install/path -DCAPSTONE_ARCHITECTURE_DEFAULT=OFF -DCAPSTONE_X86_SUPPORT=ON -DCAPSTONE_BUILD_TESTS=OFF
+$ make
+$ [sudo] make install
+```
